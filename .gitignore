@@ -1,0 +1,18 @@
+# dependencies and builds
+node_modules
+dist
+dist-web
+dist-offline
+.e2e-web
+*.tsbuildinfo
+
+# local settings and secrets (never commit)
+.env
+.env.*
+!.env.example
+supabase/.temp
+supabase/.branches
+
+# deployment kits and archives
+deploy/
+*.zip
