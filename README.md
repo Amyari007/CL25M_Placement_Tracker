@@ -82,7 +82,7 @@ More in [docs/problem-statement.md](docs/problem-statement.md).
 
 | # | Requirement | How it is met |
 | --- | --- | --- |
-| R1 | Exactly the 15 authorised students (CL25M001–CL25M016, no CL25M014) | Roll numbers fixed by a database check constraint |
+| R1 | Exactly the 15 authorised students | Roll numbers fixed by a database check constraint |
 | R2 | Simple sign-in without email | Roll number + personal access code, verified server-side |
 | R3 | Students see only their own records | PostgreSQL row-level security |
 | R4 | Batch picture without exposing individuals | Aggregate-only statistics function; distinct-student counts |
