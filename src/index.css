@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    @apply bg-canvas text-ink font-sans antialiased;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+  :focus-visible { outline: 2px solid #0F766E; outline-offset: 2px; border-radius: 6px; }
+  .tnum { font-variant-numeric: tabular-nums; }
+  input[type='date']::-webkit-calendar-picker-indicator { opacity: 0.55; cursor: pointer; }
+}
+
+@layer components {
+  .ctl {
+    @apply block w-full rounded-ctl border border-line-strong bg-surface px-3 text-[15px] text-ink
+      placeholder:text-muted-light transition-colors
+      hover:border-[#BFBBB1] focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/20
+      disabled:bg-canvas disabled:text-muted;
+    min-height: 44px;
+  }
+  .ctl[aria-invalid='true'] { @apply border-danger focus:ring-danger/20; }
+  .card { @apply rounded-card border border-line bg-surface shadow-card; }
+  .eyebrow { @apply text-2xs font-semibold uppercase tracking-[0.08em] text-muted; }
+}
+
+@keyframes toast-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes sheet-in { from { transform: translateX(16px); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes pulse-soft { 0%, 100% { opacity: 1; } 50% { opacity: 0.55; } }
+.anim-toast { animation: toast-in 160ms ease-out; }
+.anim-fade { animation: fade-in 140ms ease-out; }
+.anim-sheet { animation: sheet-in 180ms ease-out; }
+.skeleton { background: #ECEAE4; animation: pulse-soft 1.4s ease-in-out infinite; border-radius: 6px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}

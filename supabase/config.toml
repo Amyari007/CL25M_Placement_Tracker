@@ -1,0 +1,20 @@
+# Function settings. Each function verifies the caller itself
+# (student-login and staff-login are public by design; admin-* re-check
+# is_admin(); coordinator-api checks role, session and device itself).
+[functions.student-login]
+verify_jwt = false
+
+[functions.admin-export]
+verify_jwt = false
+
+[functions.admin-credentials]
+verify_jwt = false
+
+[functions.admin-team]
+verify_jwt = false
+
+[functions.staff-login]
+verify_jwt = false
+
+[functions.coordinator-api]
+verify_jwt = false
